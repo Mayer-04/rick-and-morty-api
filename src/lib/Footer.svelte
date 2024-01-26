@@ -1,25 +1,44 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+  import { fetchCounts } from "../data/fetch-counts";
   import GitHub from "./icons/GitHub.svelte";
   import Favorite from "./icons/Favorite.svelte";
   import Netlify from "./icons/Netlify.svelte";
   import Stellate from "./icons/Stellate.svelte";
   import X from "./icons/X.svelte";
 
-  const date = new Date();
-  let currentYear = date.getFullYear();
+  let currentYear = new Date().getFullYear();
+  let counts: Counts[] = [];
+
+  onMount(async () => {
+    try {
+      const data = await fetchCounts();
+      counts = [data];
+    } catch (error) {
+      throw error;
+    }
+  });
 </script>
 
 <footer class="footer">
   <nav class="nav-api">
-    <a href="https://rickandmortyapi.com/api/character" target="_blank"
-      >CHARACTERS: 826</a
-    >
-    <a href="https://rickandmortyapi.com/api/location" target="_blank"
-      >LOCATIONS: 126</a
-    >
-    <a href="https://rickandmortyapi.com/api/episode" target="_blank"
-      >EPISODES: 51</a
-    >
+    {#each counts as { characters, locations, episodes }}
+      <a
+        href="https://rickandmortyapi.com/api/character"
+        target="_blank"
+        rel="noopener noreferrer">CHARACTERS: {characters}</a
+      >
+      <a
+        href="https://rickandmortyapi.com/api/location"
+        target="_blank"
+        rel="noopener noreferrer">LOCATIONS: {locations}</a
+      >
+      <a
+        href="https://rickandmortyapi.com/api/episode"
+        target="_blank"
+        rel="noopener noreferrer">EPISODES: {episodes}</a
+      >
+    {/each}
   </nav>
 
   <div class="server-status">
@@ -28,10 +47,14 @@
   </div>
 
   <figure class="deploy">
-    <a href="https://www.netlify.com" target="_blank">
+    <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">
       <Netlify></Netlify>
     </a>
-    <a href="https://stellate.co/?ref=powered-by" target="_blank">
+    <a
+      href="https://stellate.co/?ref=powered-by"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Stellate></Stellate>
     </a>
   </figure>
@@ -39,18 +62,25 @@
   <nav class="social-networks">
     <a
       href="https://github.com/afuh/rick-and-morty-api"
-      title="GitHub"
       target="_blank"
+      rel="noopener noreferrer"
+      title="GitHub"
     >
       <GitHub></GitHub>
     </a>
-    <a href="https://twitter.com/rickandmortyapi" title="X" target="_blank">
+    <a
+      href="https://twitter.com/rickandmortyapi"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="X"
+    >
       <X></X>
     </a>
     <a
       href="https://rickandmortyapi.com/support-us"
-      title="Favorite"
       target="_blank"
+      rel="noopener noreferrer"
+      title="Favorite"
     >
       <Favorite></Favorite>
     </a>
@@ -58,8 +88,11 @@
 
   <div>
     <p>
-      ❮❯ by <a class="creator" href="https://github.com/afuh" target="_blank"
-        >Axel Fuhrmann</a
+      ❮❯ by <a
+        class="creator"
+        href="https://github.com/afuh"
+        target="_blank"
+        rel="noopener noreferrer">Axel Fuhrmann</a
       >
       {currentYear}
     </p>

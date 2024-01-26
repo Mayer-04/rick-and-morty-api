@@ -8,9 +8,15 @@
   </a>
 
   <nav class="nav">
-    <a href="https://www.google.com/">Docs</a>
-    <a href="https://www.google.com/">About</a>
-    <a href="https://www.google.com/">SUPPORT US</a>
+    <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"
+      >Docs</a
+    >
+    <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"
+      >About</a
+    >
+    <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"
+      >SUPPORT US</a
+    >
   </nav>
 </header>
 
