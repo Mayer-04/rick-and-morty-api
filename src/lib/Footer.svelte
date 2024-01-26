@@ -84,7 +84,7 @@
       rel="noopener noreferrer"
       title="Favorite"
     >
-      <Favorite></Favorite>
+      <Favorite class="favorite"></Favorite>
     </a>
   </nav>
 
