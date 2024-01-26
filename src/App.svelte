@@ -5,13 +5,17 @@
   import Hero from "./lib/Hero.svelte";
   import Footer from "./lib/Footer.svelte";
   import Characters from "./lib/Characters.svelte";
+  import { getCharacters } from "./data/get-characters";
 
   let characters: Result[] = [];
 
   onMount(async () => {
-    const response = await fetch("https://rickandmortyapi.com/api/character");
-    const data = await response.json();
-    characters = data.results;
+    try {
+      const data = await getCharacters();
+      characters = [...data];
+    } catch (error) {
+      throw error;
+    }
   });
 </script>
 

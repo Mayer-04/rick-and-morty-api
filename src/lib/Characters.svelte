@@ -2,30 +2,28 @@
   import type { Result } from "../types/results";
 
   export let characters: Result[];
-
-  const sliceCharacters = characters.slice(0, 6);
 </script>
 
-{#each sliceCharacters as character}
+{#each characters as { image, name, status, location, origin }}
   <article class="character">
     <figure>
-      <img src={character.image} alt={character.name} />
+      <img src={image} alt={name} />
     </figure>
 
     <div class="info">
       <header>
-        <h1>{character.name}</h1>
-        <p>{character.status}</p>
+        <h1>{name}</h1>
+        <p>{status}</p>
       </header>
 
       <div>
         <p>Last known location:</p>
-        <p>{character.location.name}</p>
+        <p>{location.name}</p>
       </div>
 
       <footer>
         <p>First seen in:</p>
-        <p>{character.origin.name}</p>
+        <p>{origin.name}</p>
       </footer>
     </div>
   </article>
