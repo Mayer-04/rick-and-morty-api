@@ -1,4 +1,4 @@
-import type { Results } from "../types/results";
+import type { RickAndMorty } from "../types/results";
 
 export const getCount = async (url: string) => {
   try {
@@ -6,7 +6,7 @@ export const getCount = async (url: string) => {
     if (!response.ok) {
       throw new Error(`Failed to fetch data, HTTP status: ${response.status}`);
     }
-    const results: Results = await response.json();
+    const results: RickAndMorty = await response.json();
     const { info } = results;
     const { count } = info;
     return count;
