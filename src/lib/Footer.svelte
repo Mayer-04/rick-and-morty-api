@@ -15,7 +15,7 @@
   onMount(async () => {
     try {
       const data = await fetchCounts();
-      counts = [data];
+      counts = [...counts, data];
     } catch (error) {
       throw error;
     }
