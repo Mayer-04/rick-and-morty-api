@@ -6,7 +6,7 @@
   import X from "./icons/X.svelte";
 
   const date = new Date();
-  let year = date.getFullYear();
+  let currentYear = date.getFullYear();
 </script>
 
 <footer class="footer">
@@ -61,7 +61,7 @@
       ❮❯ by <a class="creator" href="https://github.com/afuh" target="_blank"
         >Axel Fuhrmann</a
       >
-      {year}
+      {currentYear}
     </p>
   </div>
 </footer>
