@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { fetchCounts } from "../data/fetch-counts";
+  import type { Counts } from "../types/counts";
+  // Icons
   import GitHub from "./icons/GitHub.svelte";
   import Favorite from "./icons/Favorite.svelte";
   import Netlify from "./icons/Netlify.svelte";

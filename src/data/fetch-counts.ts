@@ -1,5 +1,6 @@
 import { URLS } from "../utils/urls";
 import { getCount } from "./get-count";
+import type { Counts } from "../types/counts";
 
 const { characters, episodes, locations } = URLS;
 
