@@ -3,8 +3,8 @@
 </script>
 
 <section class="hero">
-  <h1>The Rick and Morty API</h1>
-  <figure>
+  <h1 class="hero-title">The Rick and Morty API</h1>
+  <figure class="hero-image">
     <RickIcon></RickIcon>
   </figure>
 </section>
@@ -18,20 +18,20 @@
     height: calc(50vh - 60px);
   }
 
-  figure {
-    position: absolute;
-    width: 18.75rem;
-  }
-
-  h1 {
+  .hero-title {
     font-size: 6.25rem;
     font-weight: 900;
-    z-index: 10;
     text-align: center;
+    z-index: 10;
   }
 
-  h1::selection {
+  .hero-title::selection {
     background-color: var(--main);
     color: var(--orange);
+  }
+
+  .hero-image {
+    position: absolute;
+    width: 18.75rem;
   }
 </style>
