@@ -1,9 +1,9 @@
-import { generateRandomPage } from "../utils/random-page";
+import { generateUniqueRandomPage } from "../utils/random-page";
 import { randomElement } from "../utils/random-character";
 import type { RickAndMorty } from "../types/results";
 
 export const getCharacters = async () => {
-  const randomPage = generateRandomPage();
+  const randomPage = generateUniqueRandomPage();
 
   const charactersPromises = randomPage.map(async (pageNumber) => {
     try {

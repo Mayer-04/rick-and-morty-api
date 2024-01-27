@@ -10,11 +10,11 @@
 //     throw error;
 //   }
 // };
-
-export const generateRandomPage = (): number[] => {
-  const randomPageNumbers = Array.from(
-    { length: 6 },
-    () => Math.floor(Math.random() * 42) + 1
-  );
-  return randomPageNumbers;
+export const generateUniqueRandomPage = () => {
+  const uniquePageNumbers = new Set();
+  while (uniquePageNumbers.size < 6) {
+    const randomPage = Math.floor(Math.random() * 42) + 1;
+    uniquePageNumbers.add(randomPage);
+  }
+  return Array.from(uniquePageNumbers);
 };
