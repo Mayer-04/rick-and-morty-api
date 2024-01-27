@@ -25,8 +25,8 @@
   <section class="characters">
     {#each characters as { image, name, status, species, location, origin }}
       <article class="character">
-        <figure>
-          <img src={image} alt={name} />
+        <figure class="character-figure">
+          <img src={image} alt={name} class="character-image" />
         </figure>
 
         <div class="info">
@@ -73,19 +73,19 @@
     --info-weigth: 500;
 
     display: flex;
-    flex: 3 1 0%;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+    flex: 3 1 0%;
     width: 100%;
-    padding: 13px;
+    padding: 1rem;
   }
 
-  figure {
+  .character-figure {
     flex: 2 1 0%;
     width: 100%;
   }
 
-  img {
+  .character-image {
     width: 100%;
     height: 100%;
     object-fit: cover;

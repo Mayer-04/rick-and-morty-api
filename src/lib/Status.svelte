@@ -21,6 +21,7 @@
 <style>
   .name {
     font-size: 1.6875rem;
+    text-wrap: balance;
   }
 
   .status-icon {
