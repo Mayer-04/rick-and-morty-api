@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Result } from "../types/results";
+  import { Status, type Result } from "../types/results";
 
   export let characters: Result[];
 </script>
@@ -13,8 +13,15 @@
     <div class="info">
       <header>
         <h2>{name}</h2>
-        <span class="status-icon"></span>
-        <span class="status"> {status} - {species} </span>
+        <span
+          class="status-icon"
+          class:alive={status === Status.Alive}
+          class:dead={status === Status.Dead}
+          class:unknown={status === Status.Unknown}
+        ></span>
+        <span class="status">
+          {status} - {species}
+        </span>
       </header>
 
       <div>
@@ -77,7 +84,6 @@
     width: var(--width);
     height: var(--height);
     border-radius: 50%;
-    background-color: var(--alive);
   }
 
   .title-location {
@@ -96,5 +102,17 @@
 
   .origin {
     font-size: 18px;
+  }
+
+  .alive {
+    background-color: var(--alive);
+  }
+
+  .dead {
+    background-color: var(--dead);
+  }
+
+  .unknown {
+    background-color: var(--unknown);
   }
 </style>
