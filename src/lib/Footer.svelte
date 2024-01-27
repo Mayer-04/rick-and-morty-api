@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import NavApi from "./NavApi.svelte";
   import { fetchCounts } from "../data/fetch-counts";
-  import type { Counts } from "../types/counts";
   // Icons
   import GitHub from "./icons/GitHub.svelte";
   import Favorite from "./icons/Favorite.svelte";
@@ -10,38 +9,11 @@
   import X from "./icons/X.svelte";
 
   let currentYear = new Date().getFullYear();
-  let counts: Counts[] = [];
-
-  onMount(async () => {
-    try {
-      const data = await fetchCounts();
-      counts = [...counts, data];
-    } catch (error) {
-      throw error;
-    }
-  });
+  const countPromises = fetchCounts();
 </script>
 
 <footer class="footer">
-  <nav class="nav-api">
-    {#each counts as { characters, locations, episodes }}
-      <a
-        href="https://rickandmortyapi.com/api/character"
-        target="_blank"
-        rel="noopener noreferrer">CHARACTERS: {characters}</a
-      >
-      <a
-        href="https://rickandmortyapi.com/api/location"
-        target="_blank"
-        rel="noopener noreferrer">LOCATIONS: {locations}</a
-      >
-      <a
-        href="https://rickandmortyapi.com/api/episode"
-        target="_blank"
-        rel="noopener noreferrer">EPISODES: {episodes}</a
-      >
-    {/each}
-  </nav>
+  <NavApi {countPromises}></NavApi>
 
   <div class="server-status">
     <p>SERVER STATUS</p>
@@ -115,26 +87,6 @@
     color: var(--unknown);
     row-gap: 1.25rem;
     padding: 4.5rem 0;
-  }
-
-  .nav-api {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .nav-api a {
-    font-weight: 700;
-    color: var(--unknown);
-    text-decoration: none;
-    cursor: pointer;
-    transition: var(--transition-color);
-  }
-
-  .nav-api a:hover {
-    color: var(--orange);
   }
 
   .server-status {
