@@ -4,7 +4,7 @@
   export let characters: Result[];
 </script>
 
-{#each characters as { image, name, status, location, origin }}
+{#each characters as { image, name, status, species, location, origin }}
   <article class="character">
     <figure>
       <img src={image} alt={name} />
@@ -12,18 +12,19 @@
 
     <div class="info">
       <header>
-        <h1>{name}</h1>
-        <p>{status}</p>
+        <h2>{name}</h2>
+        <span class="status-icon"></span>
+        <span class="status"> {status} - {species} </span>
       </header>
 
       <div>
-        <p>Last known location:</p>
-        <p>{location.name}</p>
+        <p class="title-location">Last known location:</p>
+        <p class="location">{location.name}</p>
       </div>
 
       <footer>
-        <p>First seen in:</p>
-        <p>{origin.name}</p>
+        <p class="title-origin">First seen in:</p>
+        <p class="origin">{origin.name}</p>
       </footer>
     </div>
   </article>
@@ -32,21 +33,68 @@
 <style>
   .character {
     display: flex;
-    width: 500px;
+    width: 37.5rem;
     height: 13.75rem;
     background-color: var(--cards);
     color: var(--white);
     border-radius: 0.5rem;
+    overflow: hidden;
   }
 
   .info {
     display: flex;
+    flex: 3 1 0%;
     flex-direction: column;
-    padding: 15px;
+    gap: 10px;
+    width: 100%;
+    padding: 13px;
+  }
+
+  figure {
+    flex: 2 1 0%;
+    width: 100%;
   }
 
   img {
     width: 100%;
-    height: -webkit-fill-available;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 1.6875rem;
+  }
+
+  .status {
+    font-weight: 700;
+  }
+
+  .status-icon {
+    --width: 9px;
+    --height: 9px;
+
+    display: inline-block;
+    width: var(--width);
+    height: var(--height);
+    border-radius: 50%;
+    background-color: var(--alive);
+  }
+
+  .title-location {
+    color: var(--unknown);
+    font-weight: 500;
+  }
+
+  .title-origin {
+    color: var(--unknown);
+    font-weight: 500;
+  }
+
+  .location {
+    font-size: 18px;
+  }
+
+  .origin {
+    font-size: 18px;
   }
 </style>

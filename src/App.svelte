@@ -30,8 +30,10 @@
 
 <style>
   .characters {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 30px;
     background-color: var(--characters);
     padding: 5.0625rem 0;
