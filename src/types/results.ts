@@ -14,7 +14,7 @@ export interface Result {
   id: number;
   name: string;
   status: Status;
-  species: Species;
+  species: string;
   type: string;
   gender: Gender;
   origin: Location;
@@ -34,11 +34,6 @@ export enum Gender {
 export interface Location {
   name: string;
   url: string;
-}
-
-export enum Species {
-  Alien = "Alien",
-  Human = "Human",
 }
 
 export enum Status {
