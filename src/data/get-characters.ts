@@ -1,5 +1,5 @@
 import { generateUniqueRandomPage } from "../utils/random-page";
-import { randomElement } from "../utils/random-character";
+import { randomCharacter } from "../utils/random-character";
 import type { RickAndMorty } from "../types/results";
 
 export const getCharacters = async () => {
@@ -12,7 +12,7 @@ export const getCharacters = async () => {
       );
       const data: RickAndMorty = await response.json();
       const { results } = data;
-      const resultsRandom = randomElement(results, results.length);
+      const resultsRandom = randomCharacter(results, results.length);
       return resultsRandom;
     } catch (error) {
       throw new Error(`Error fetching characters: ${error}`);
