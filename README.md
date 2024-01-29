@@ -2,7 +2,7 @@
 
 Este proyecto es un clon de la página web de la API de Rick and Morty, utilizando TypeScript y Svelte.
 
-Todos los derechos reservados al creador original, [afuh](https://github.com/afuh).
+Todos los derechos reservados al creador original [afuh](https://github.com/afuh).
 
 ## Descripción
 
