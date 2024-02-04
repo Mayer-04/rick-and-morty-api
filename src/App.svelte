@@ -14,7 +14,9 @@
       const data = await getCharacters();
       characters = [...data];
     } catch (error) {
-      throw error;
+      throw new Error("Error getting characters on multiple promises", {
+        cause: error,
+      });
     }
   });
 </script>

@@ -10,6 +10,6 @@ export const fetchCharacterPage = async (
     const { results } = data;
     return results;
   } catch (error) {
-    throw new Error(`Error fetching characters of the pages: ${error}`);
+    throw new Error("Error fetching characters of the pages", { cause: error });
   }
 };

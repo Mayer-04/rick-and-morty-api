@@ -18,6 +18,6 @@ export const fetchCounts = async (): Promise<Counts> => {
       locations: locationsCount,
     };
   } catch (error) {
-    throw new Error(`Error fetching counts: ${error}`);
+    throw new Error("Error fetching counts", { cause: error });
   }
 };
