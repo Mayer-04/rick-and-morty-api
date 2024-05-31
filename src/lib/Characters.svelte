@@ -2,10 +2,14 @@
   import type { Result } from "../types/results";
   import Status from "./Status.svelte";
 
-  export let characters: Result[];
+  type Props = {
+    characters: Result[];
+  };
+
+  let { characters }: Props = $props();
 </script>
 
-{#each characters as { image, name, status, species, location, origin }}
+{#each characters as { image, name, status, species, location, origin, id } (id)}
   <article class="character">
     <figure class="character-figure">
       <img src={image} alt={name} class="character-image" />

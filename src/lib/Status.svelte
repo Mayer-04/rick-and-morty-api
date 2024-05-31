@@ -1,8 +1,7 @@
 <script lang="ts">
   import { Status } from "../types/results";
-  export let name: string;
-  export let status: string;
-  export let species: string;
+
+  let { name, status, species } = $props();
 </script>
 
 <header class="characters-status">

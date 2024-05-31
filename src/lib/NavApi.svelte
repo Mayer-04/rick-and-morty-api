@@ -1,6 +1,11 @@
 <script lang="ts">
   import type { Counts } from "../types/counts";
-  export let countPromises: Promise<Counts>;
+
+  type Props = {
+    countPromises: Promise<Counts>;
+  };
+
+  let { countPromises }: Props = $props();
 </script>
 
 <nav class="nav-api">
@@ -29,7 +34,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1.25rem;
   }
 
   .nav-api a {

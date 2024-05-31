@@ -1,23 +1,26 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { getCharacters } from "./data/get-characters";
   import type { Result } from "./types/results";
+  import { getCharacters } from "./data/get-characters";
   import Header from "./lib/Header.svelte";
   import Hero from "./lib/Hero.svelte";
   import Characters from "./lib/Characters.svelte";
   import Footer from "./lib/Footer.svelte";
 
-  let characters: Result[] = [];
+  let characters: Result[] = $state([]);
 
-  onMount(async () => {
+  async function fetchCharacters() {
     try {
       const data = await getCharacters();
-      characters = [...data];
+      characters.push(...data);
     } catch (error) {
       throw new Error("Error getting characters on multiple promises", {
         cause: error,
       });
     }
+  }
+
+  $effect(() => {
+    fetchCharacters();
   });
 </script>
 
@@ -36,7 +39,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 1.875rem;
     background-color: var(--characters);
     padding: 5rem 0;
   }
