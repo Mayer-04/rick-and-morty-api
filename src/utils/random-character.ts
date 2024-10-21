@@ -1,6 +1,6 @@
 import type { Result } from "../types/results";
 
-export const randomCharacter = (results: Result[], length: number) => {
-  const random = Math.floor(Math.random() * length);
-  return results[random];
+export const getRandomCharacter = (characters: Result[], length: number) => {
+  const randomIndex = Math.floor(Math.random() * length);
+  return characters[randomIndex];
 };

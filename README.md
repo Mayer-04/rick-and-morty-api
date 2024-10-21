@@ -12,16 +12,16 @@ El clon de la página web de la API de Rick and Morty permite explorar y consumi
 
 ### Requisitos Previos
 
-- [Node.js](https://nodejs.org/en) (v14.0.0 o superior)
+- [Node.js](https://nodejs.org/en) (v18.0.0 o superior)
 - [pnpm](https://pnpm.io/es/) (puedes instalarlo globalmente con `npm install -g pnpm`)
 
 ### Instalación
 
 1. Clona el repositorio:
 
-   ```bash
-   git clone https://github.com/Mayer-04/Rick-and-Morty-API.git
-   ```
+```bash
+git clone https://github.com/Mayer-04/rick-and-morty-api.git
+```
 
 2. Instalar dependencias `pnpm install`
 3. Ejecuta el proyecto en modo desarrollo: `pnpm run dev`

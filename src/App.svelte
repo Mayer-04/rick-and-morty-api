@@ -1,26 +1,17 @@
 <script lang="ts">
   import type { Result } from "./types/results";
-  import { getCharacters } from "./data/get-characters";
   import Header from "./lib/Header.svelte";
   import Hero from "./lib/Hero.svelte";
   import Characters from "./lib/Characters.svelte";
   import Footer from "./lib/Footer.svelte";
+  import { data } from "./main";
 
-  let characters: Result[] = $state([]);
-
-  async function fetchCharacters() {
-    try {
-      const data = await getCharacters();
-      characters.push(...data);
-    } catch (error) {
-      throw new Error("Error getting characters on multiple promises", {
-        cause: error,
-      });
-    }
-  }
-
+  // $state.raw estás declarando un estado que no es reactivo a mutaciones.
+  // El principio de $state.raw requiere reasignar el estado en lugar de modificarlo.
+  // Estamos trabajando con un arreglo que solo se va a mostrar sin mutaciones internas.
+  let characters: Result[] = $state.raw([]);
   $effect(() => {
-    fetchCharacters();
+    characters = data;
   });
 </script>
 

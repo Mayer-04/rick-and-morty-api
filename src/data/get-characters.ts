@@ -1,14 +1,15 @@
 import { generateUniqueRandomPage } from "../utils/random-page";
-import { randomCharacter } from "../utils/random-character";
+import { getRandomCharacter } from "../utils/random-character";
 import { fetchCharacterPage } from "./character-pages";
+import type { Result } from "../types/results";
 
-export const getCharacters = async () => {
+export const getCharacters = async (): Promise<Result[]> => {
   const uniquePage = generateUniqueRandomPage();
 
   const characterPromises = uniquePage.map(async (page) => {
     try {
       const results = await fetchCharacterPage(page);
-      return randomCharacter(results, results.length);
+      return getRandomCharacter(results, results.length);
     } catch (error) {
       throw error;
     }
