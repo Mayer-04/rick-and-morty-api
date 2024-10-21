@@ -9,7 +9,7 @@
   // $state.raw estás declarando un estado que no es reactivo a mutaciones.
   // El principio de $state.raw requiere reasignar el estado en lugar de modificarlo.
   // Estamos trabajando con un arreglo que solo se va a mostrar sin mutaciones internas.
-  let characters: Result[] = $state.raw([]);
+  let characters: Result[] = $state([]);
   $effect(() => {
     characters = data;
   });
