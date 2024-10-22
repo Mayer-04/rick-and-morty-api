@@ -4,11 +4,17 @@
   import Hero from "./lib/Hero.svelte";
   import Characters from "./lib/Characters.svelte";
   import Footer from "./lib/Footer.svelte";
-  import { data } from "./main";
+  import { getCharacters } from "./data/get-characters";
 
   let characters: Result[] = $state([]);
+
+  async function fetchCharacters() {
+    const results = await getCharacters();
+    characters = results;
+  }
+
   $effect(() => {
-    characters = data;
+    fetchCharacters();
   });
 </script>
 
