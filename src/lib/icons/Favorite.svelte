@@ -1,5 +1,9 @@
+<script lang="ts">
+  let { ...props }: { [key: string]: string } = $props();
+</script>
+
 <svg
-  class={$$props.class}
+  class={props.class}
   width="18px"
   height="18px"
   stroke="currentColor"
